@@ -1,0 +1,15 @@
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\bin\Debug\net10.0\IdentityService.Application.deps.json
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\bin\Debug\net10.0\IdentityService.Application.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\bin\Debug\net10.0\IdentityService.Application.pdb
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\bin\Debug\net10.0\IdentityService.Domain.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\bin\Debug\net10.0\IdentityService.Domain.pdb
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.csproj.AssemblyReference.cache
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.AssemblyInfoInputs.cache
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.AssemblyInfo.cs
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.csproj.CoreCompileInputs.cache
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\Identity.52144512.Up2Date
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\refint\IdentityService.Application.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.pdb
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\ref\IdentityService.Application.dll
