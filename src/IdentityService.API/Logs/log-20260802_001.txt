@@ -1,0 +1,512 @@
+2026-08-02 06:19:31.296 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 06:19:31.570 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 06:19:31.757 +05:30 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5227: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+ ---> System.Net.Sockets.SocketException (10048): Only one usage of each socket address (protocol/network address/port) is normally permitted.
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-08-02 06:21:47.471 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 06:21:47.679 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 06:21:47.811 +05:30 [INF] Now listening on: http://localhost:5227
+2026-08-02 06:21:47.813 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-02 06:21:47.814 +05:30 [INF] Hosting environment: Development
+2026-08-02 06:21:47.814 +05:30 [INF] Content root path: D:\My Learning\ResearchPlatform\src\IdentityService.API
+2026-08-02 06:22:40.792 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/register - application/json 112
+2026-08-02 06:22:40.905 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-08-02 06:22:41.021 +05:30 [INF] Executing endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 06:22:41.055 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 06:22:41.101 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-02 06:26:12.593 +05:30 [INF] Executed DbCommand (9,214ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 06:26:12.629 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@roleName='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Roles] AS [r]
+WHERE [r].[Name] = @roleName
+2026-08-02 06:26:13.351 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = Guid), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (DbType = Boolean), @p13='?' (DbType = DateTime2), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [CreatedBy], [CreatedDate], [ModifiedBy], [ModifiedDate], [Name])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+INSERT INTO [Users] ([Id], [CreatedBy], [CreatedDate], [Email], [FirstName], [IsEmailVerified], [IsLocked], [LastLoginDate], [LastName], [ModifiedBy], [ModifiedDate], [PasswordHash], [PhoneNumber], [RoleId])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+2026-08-02 06:26:44.965 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Guid'.
+2026-08-02 06:26:44.987 +05:30 [INF] Executed action AuthController.Register (IdentityService.API) in 243927.5575ms
+2026-08-02 06:26:44.990 +05:30 [INF] Executed endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 06:26:58.880 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/register - 200 null application/json; charset=utf-8 258092.1496ms
+2026-08-02 06:29:39.056 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/register - application/json 112
+2026-08-02 06:29:39.061 +05:30 [INF] Executing endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 06:29:39.062 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 06:33:10.819 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 06:33:12.834 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@roleName='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Roles] AS [r]
+WHERE [r].[Name] = @roleName
+2026-08-02 06:34:25.702 +05:30 [INF] Executed action AuthController.Register (IdentityService.API) in 286638.9332ms
+2026-08-02 06:34:25.703 +05:30 [INF] Executed endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 06:34:37.341 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/register - 500 null application/json; charset=utf-8 298285.1684ms
+2026-08-02 06:40:25.218 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 06:40:25.296 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 06:40:25.499 +05:30 [INF] Executed DbCommand (37ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = Guid), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (DbType = Guid), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000), @p18='?' (DbType = Guid), @p19='?' (Size = 4000), @p20='?' (DbType = DateTime2), @p21='?' (Size = 4000), @p22='?' (DbType = DateTime2), @p23='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [CreatedBy], [CreatedDate], [ModifiedBy], [ModifiedDate], [Name])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5),
+(@p6, @p7, @p8, @p9, @p10, @p11),
+(@p12, @p13, @p14, @p15, @p16, @p17),
+(@p18, @p19, @p20, @p21, @p22, @p23);
+2026-08-02 06:40:25.592 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 06:40:25.664 +05:30 [INF] Now listening on: http://localhost:5227
+2026-08-02 06:40:25.667 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-02 06:40:25.669 +05:30 [INF] Hosting environment: Development
+2026-08-02 06:40:25.670 +05:30 [INF] Content root path: D:\My Learning\ResearchPlatform\src\IdentityService.API
+2026-08-02 06:41:46.094 +05:30 [INF] Application is shutting down...
+2026-08-02 06:42:05.984 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 06:42:06.204 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 06:42:06.348 +05:30 [INF] Now listening on: http://localhost:5227
+2026-08-02 06:42:06.350 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-02 06:42:06.350 +05:30 [INF] Hosting environment: Development
+2026-08-02 06:42:06.350 +05:30 [INF] Content root path: D:\My Learning\ResearchPlatform\src\IdentityService.API
+2026-08-02 06:42:34.342 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2026-08-02 06:42:34.561 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 304 null null 221.9016ms
+2026-08-02 06:42:34.615 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - null null
+2026-08-02 06:42:34.618 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.css - null null
+2026-08-02 06:42:34.623 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.js - null null
+2026-08-02 06:42:34.626 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.js - 304 null null 2.1792ms
+2026-08-02 06:42:34.641 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - null null
+2026-08-02 06:42:34.641 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-02 06:42:34.727 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.css - 304 null null 108.9213ms
+2026-08-02 06:42:34.727 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - 304 null null 86.0891ms
+2026-08-02 06:42:34.727 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - 304 null null 113.5385ms
+2026-08-02 06:42:34.730 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - 304 null null 88.7812ms
+2026-08-02 06:42:34.875 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2026-08-02 06:42:35.165 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 290.1358ms
+2026-08-02 06:42:59.337 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 59
+2026-08-02 06:42:59.373 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-08-02 06:42:59.506 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 06:42:59.546 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 06:42:59.586 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-02 06:44:33.263 +05:30 [INF] Executed DbCommand (158ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 06:44:52.616 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 113064.9095ms
+2026-08-02 06:44:52.618 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 06:45:01.768 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 500 null application/json; charset=utf-8 122430.9825ms
+2026-08-02 06:46:04.126 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/register - application/json 110
+2026-08-02 06:46:04.141 +05:30 [INF] Executing endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 06:46:04.153 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 06:47:02.676 +05:30 [INF] Executed DbCommand (180ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 06:47:06.209 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@roleName='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Roles] AS [r]
+WHERE [r].[Name] = @roleName
+2026-08-02 06:50:43.263 +05:30 [INF] Executed DbCommand (149ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (DbType = Guid), @p7='?' (Size = 4000), @p8='?' (DbType = DateTime2), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (DbType = Boolean), @p13='?' (DbType = DateTime2), @p14='?' (Size = 4000), @p15='?' (Size = 4000), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Roles] ([Id], [CreatedBy], [CreatedDate], [ModifiedBy], [ModifiedDate], [Name])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+INSERT INTO [Users] ([Id], [CreatedBy], [CreatedDate], [Email], [FirstName], [IsEmailVerified], [IsLocked], [LastLoginDate], [LastName], [ModifiedBy], [ModifiedDate], [PasswordHash], [PhoneNumber], [RoleId])
+VALUES (@p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19);
+2026-08-02 06:50:55.150 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Guid'.
+2026-08-02 06:50:55.156 +05:30 [INF] Executed action AuthController.Register (IdentityService.API) in 291002.4737ms
+2026-08-02 06:50:55.157 +05:30 [INF] Executed endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 06:50:58.685 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/register - 200 null application/json; charset=utf-8 294564.7113ms
+2026-08-02 07:12:04.636 +05:30 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 07:12:05.043 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 07:12:05.191 +05:30 [INF] Now listening on: http://localhost:5227
+2026-08-02 07:12:05.193 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-02 07:12:05.194 +05:30 [INF] Hosting environment: Development
+2026-08-02 07:12:05.194 +05:30 [INF] Content root path: D:\My Learning\ResearchPlatform\src\IdentityService.API
+2026-08-02 07:13:40.146 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/register - application/json 112
+2026-08-02 07:13:40.265 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-08-02 07:13:40.405 +05:30 [INF] Executing endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 07:13:40.451 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 07:13:40.503 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-02 07:14:02.939 +05:30 [INF] Executed DbCommand (156ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 07:14:07.991 +05:30 [INF] Executed DbCommand (30ms) [Parameters=[@roleName='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Roles] AS [r]
+WHERE [r].[Name] = @roleName
+2026-08-02 07:18:43.428 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [CreatedBy], [CreatedDate], [Email], [FirstName], [IsEmailVerified], [IsLocked], [LastLoginDate], [LastName], [ModifiedBy], [ModifiedDate], [PasswordHash], [PhoneNumber], [RoleId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-08-02 07:20:20.318 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 60
+2026-08-02 07:20:26.544 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 07:20:26.688 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 07:20:26.694 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Guid'.
+2026-08-02 07:21:00.588 +05:30 [INF] Executed action AuthController.Register (IdentityService.API) in 437746.6996ms
+2026-08-02 07:21:00.589 +05:30 [INF] Executed endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 07:21:06.089 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/register - 200 null application/json; charset=utf-8 445947.6849ms
+2026-08-02 07:21:06.110 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 07:22:05.218 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 07:22:16.436 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 109746.965ms
+2026-08-02 07:22:16.436 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 07:22:20.114 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 119796.052ms
+2026-08-02 08:38:32.274 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 08:38:32.432 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 08:38:32.501 +05:30 [INF] Now listening on: http://localhost:5227
+2026-08-02 08:38:32.506 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-02 08:38:32.508 +05:30 [INF] Hosting environment: Development
+2026-08-02 08:38:32.509 +05:30 [INF] Content root path: D:\My Learning\ResearchPlatform\src\IdentityService.API
+2026-08-02 08:38:43.837 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2026-08-02 08:38:44.020 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 304 null null 185.0903ms
+2026-08-02 08:38:44.087 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - null null
+2026-08-02 08:38:44.097 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.css - null null
+2026-08-02 08:38:44.101 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-02 08:38:44.101 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - null null
+2026-08-02 08:38:44.102 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.js - null null
+2026-08-02 08:38:44.122 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - 304 null null 35.5913ms
+2026-08-02 08:38:44.122 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.css - 304 null null 24.1775ms
+2026-08-02 08:38:44.123 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - 304 null null 22.678ms
+2026-08-02 08:38:44.127 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - 304 null null 26.3312ms
+2026-08-02 08:38:44.129 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.js - 304 null null 26.4095ms
+2026-08-02 08:38:44.311 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2026-08-02 08:38:44.548 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 236.9452ms
+2026-08-02 08:38:51.678 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 08:38:51.690 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-08-02 08:38:51.744 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:38:51.761 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:38:51.764 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 86.0699ms
+2026-08-02 08:39:19.409 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 60
+2026-08-02 08:39:19.446 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 08:39:19.494 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 08:39:19.520 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-02 08:39:20.071 +05:30 [INF] Executed DbCommand (63ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 08:39:20.977 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 08:39:21.009 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 1503.3314ms
+2026-08-02 08:39:21.013 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 08:39:21.030 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 1620.3817ms
+2026-08-02 08:39:26.777 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 08:39:26.790 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:39:26.794 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:39:26.797 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 19.4358ms
+2026-08-02 08:39:28.802 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 08:39:28.809 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:39:28.812 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:39:28.814 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 12.2701ms
+2026-08-02 08:40:19.365 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 08:40:19.372 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 08:40:19.374 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:40:19.376 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 401 0 null 10.3958ms
+2026-08-02 08:40:30.088 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/research - null null
+2026-08-02 08:40:30.093 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Researcher)
+2026-08-02 08:40:30.095 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:40:30.098 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/research - 401 0 null 9.5777ms
+2026-08-02 08:40:40.792 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 08:40:40.797 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:40:40.800 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:40:40.804 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 11.739ms
+2026-08-02 08:42:49.624 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2026-08-02 08:42:49.629 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 304 null null 5.2575ms
+2026-08-02 08:42:49.731 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - null null
+2026-08-02 08:42:49.734 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.css - null null
+2026-08-02 08:42:49.737 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.js - null null
+2026-08-02 08:42:49.737 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - null null
+2026-08-02 08:42:49.737 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-02 08:42:49.739 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - 304 null null 7.9916ms
+2026-08-02 08:42:49.742 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.css - 304 null null 8.2974ms
+2026-08-02 08:42:49.747 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.js - 304 null null 9.7497ms
+2026-08-02 08:42:49.752 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - 304 null null 15.0247ms
+2026-08-02 08:42:49.756 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - 304 null null 18.8756ms
+2026-08-02 08:42:49.919 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2026-08-02 08:42:49.930 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.4253ms
+2026-08-02 08:42:56.088 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 08:42:56.094 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:42:56.096 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:42:56.099 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 11.4209ms
+2026-08-02 08:43:06.051 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 08:43:06.079 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 08:43:06.086 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:43:06.089 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 401 0 null 38.3035ms
+2026-08-02 08:43:17.433 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/research - null null
+2026-08-02 08:43:17.445 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Researcher)
+2026-08-02 08:43:17.451 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:43:17.456 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/research - 401 0 null 23.4479ms
+2026-08-02 08:43:32.430 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 08:43:32.447 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:43:32.449 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:43:32.455 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 24.7084ms
+2026-08-02 08:49:34.252 +05:30 [INF] Application is shutting down...
+2026-08-02 08:49:50.251 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 08:49:50.404 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 08:49:50.467 +05:30 [INF] Now listening on: http://localhost:5227
+2026-08-02 08:49:50.471 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-02 08:49:50.472 +05:30 [INF] Hosting environment: Development
+2026-08-02 08:49:50.473 +05:30 [INF] Content root path: D:\My Learning\ResearchPlatform\src\IdentityService.API
+2026-08-02 08:49:59.499 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2026-08-02 08:49:59.687 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 304 null null 190.1683ms
+2026-08-02 08:49:59.738 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.css - null null
+2026-08-02 08:49:59.738 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - null null
+2026-08-02 08:49:59.738 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - null null
+2026-08-02 08:49:59.739 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-02 08:49:59.739 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.js - null null
+2026-08-02 08:49:59.768 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.js - 304 null null 27.9908ms
+2026-08-02 08:49:59.771 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.css - 304 null null 33.5878ms
+2026-08-02 08:49:59.771 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - 304 null null 33.5884ms
+2026-08-02 08:49:59.771 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - 304 null null 32.5711ms
+2026-08-02 08:49:59.776 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - 304 null null 37.5589ms
+2026-08-02 08:49:59.941 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2026-08-02 08:50:00.182 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 240.7057ms
+2026-08-02 08:50:19.372 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 60
+2026-08-02 08:50:19.387 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-08-02 08:50:19.456 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 08:50:19.495 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 08:50:19.521 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-02 08:50:20.188 +05:30 [INF] Executed DbCommand (64ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 08:50:20.227 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 720.8789ms
+2026-08-02 08:50:20.231 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 08:50:20.252 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 500 null application/json; charset=utf-8 880.6139ms
+2026-08-02 08:50:36.943 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 60
+2026-08-02 08:50:36.954 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 08:50:36.959 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 08:50:37.018 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 08:50:37.890 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 08:50:37.916 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 953.3371ms
+2026-08-02 08:50:37.919 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 08:50:37.923 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 979.8893ms
+2026-08-02 08:50:45.604 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 08:50:45.630 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:50:45.643 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:50:45.647 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 42.4656ms
+2026-08-02 08:51:47.795 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 08:51:47.819 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:51:47.823 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:51:47.826 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 30.744ms
+2026-08-02 08:54:29.174 +05:30 [INF] Application is shutting down...
+2026-08-02 08:59:13.799 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 08:59:13.942 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 08:59:14.010 +05:30 [INF] Now listening on: http://localhost:5227
+2026-08-02 08:59:14.014 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-02 08:59:14.015 +05:30 [INF] Hosting environment: Development
+2026-08-02 08:59:14.016 +05:30 [INF] Content root path: D:\My Learning\ResearchPlatform\src\IdentityService.API
+2026-08-02 08:59:28.352 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2026-08-02 08:59:28.513 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 304 null null 162.2267ms
+2026-08-02 08:59:28.565 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - null null
+2026-08-02 08:59:28.572 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.css - null null
+2026-08-02 08:59:28.575 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - null null
+2026-08-02 08:59:28.575 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.js - null null
+2026-08-02 08:59:28.579 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-02 08:59:28.588 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.js - 304 null null 12.0935ms
+2026-08-02 08:59:28.597 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - 304 null null 32.9123ms
+2026-08-02 08:59:28.597 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.css - 304 null null 24.895ms
+2026-08-02 08:59:28.597 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - 304 null null 17.6757ms
+2026-08-02 08:59:28.602 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - 304 null null 26.6907ms
+2026-08-02 08:59:28.748 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2026-08-02 08:59:28.958 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 210.32ms
+2026-08-02 08:59:35.810 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 08:59:35.819 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-08-02 08:59:35.885 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 08:59:35.892 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 08:59:35.895 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 84.6176ms
+2026-08-02 09:00:19.826 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - null null
+2026-08-02 09:00:19.826 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.css - null null
+2026-08-02 09:00:19.839 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - 304 null null 12.8542ms
+2026-08-02 09:00:19.841 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.css - 304 null null 14.5373ms
+2026-08-02 09:00:19.860 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/.well-known/appspecific/com.chrome.devtools.json - null null
+2026-08-02 09:00:19.868 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/.well-known/appspecific/com.chrome.devtools.json - 404 0 null 7.6791ms
+2026-08-02 09:00:19.877 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5227/.well-known/appspecific/com.chrome.devtools.json, Response status code: 404
+2026-08-02 09:00:51.858 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 60
+2026-08-02 09:00:51.867 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 09:00:51.905 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 09:00:51.928 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-02 09:00:52.407 +05:30 [INF] Executed DbCommand (55ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 09:00:53.275 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 09:00:53.304 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 1388.8154ms
+2026-08-02 09:00:53.307 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 09:00:53.320 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 1461.9579ms
+2026-08-02 09:01:00.155 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 09:01:00.166 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 09:01:00.170 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 09:01:00.173 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 17.161ms
+2026-08-02 09:03:30.810 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 09:03:30.817 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 09:03:30.820 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 09:03:30.822 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 12.4091ms
+2026-08-02 09:05:18.905 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Auth/login - application/json 63
+2026-08-02 09:05:18.916 +05:30 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-08-02 09:05:18.920 +05:30 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-08-02 09:05:18.923 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Auth/login - 405 0 null 18.0916ms
+2026-08-02 09:05:25.160 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 63
+2026-08-02 09:05:25.164 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 09:05:25.166 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 09:05:25.220 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 09:05:25.692 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 09:05:25.695 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 524.8832ms
+2026-08-02 09:05:25.697 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 09:05:25.699 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 539.2591ms
+2026-08-02 09:05:46.546 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 09:05:46.551 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 09:05:46.553 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 09:05:46.555 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 9.4111ms
+2026-08-02 09:06:58.895 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 09:06:59.147 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Profile (IdentityService.API)'
+2026-08-02 09:06:59.154 +05:30 [INF] Route matched with {action = "Profile", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Profile() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 09:06:59.162 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 09:06:59.168 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Profile (IdentityService.API) in 7.5204ms
+2026-08-02 09:06:59.178 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Profile (IdentityService.API)'
+2026-08-02 09:06:59.182 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 200 null application/json; charset=utf-8 286.7719ms
+2026-08-02 09:09:29.773 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/research - null null
+2026-08-02 09:09:29.782 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Researcher)
+2026-08-02 09:09:29.783 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 09:09:29.787 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/research - 401 0 null 14.3527ms
+2026-08-02 09:09:42.934 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/research - null null
+2026-08-02 09:09:42.942 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Research (IdentityService.API)'
+2026-08-02 09:09:42.946 +05:30 [INF] Route matched with {action = "Research", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Research() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 09:09:42.950 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-08-02 09:09:42.955 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Research (IdentityService.API) in 5.7597ms
+2026-08-02 09:09:42.958 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Research (IdentityService.API)'
+2026-08-02 09:09:42.960 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/research - 200 null text/plain; charset=utf-8 26.0366ms
+2026-08-02 09:09:55.558 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 09:09:55.562 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 09:09:55.564 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 09:09:55.566 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 401 0 null 8.7726ms
+2026-08-02 09:10:07.076 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 09:10:07.081 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 09:10:07.085 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-08-02 09:10:07.088 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 403 0 null 12.1441ms
+2026-08-02 09:10:34.304 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 09:10:34.309 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 09:10:34.311 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 09:10:34.312 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 8.2375ms
+2026-08-02 09:10:43.211 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 09:10:43.216 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 09:10:43.222 +05:30 [INF] Route matched with {action = "Claims", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Claims() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 09:10:43.227 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 09:10:43.229 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Claims (IdentityService.API) in 3.441ms
+2026-08-02 09:10:43.232 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 09:10:43.234 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 200 null application/json; charset=utf-8 23.1249ms
+2026-08-02 09:11:48.835 +05:30 [INF] Application is shutting down...

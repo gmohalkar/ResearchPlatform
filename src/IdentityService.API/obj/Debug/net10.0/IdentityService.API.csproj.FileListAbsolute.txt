@@ -8,6 +8,12 @@ D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Identi
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\IdentityService.API.pdb
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Azure.Core.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Azure.Identity.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\BCrypt-Net-Next.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\FluentValidation.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\FluentValidation.AspNetCore.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\MediatR.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\MediatR.Contracts.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -17,6 +23,7 @@ D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Micros
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.Identity.Client.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
@@ -27,6 +34,18 @@ D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Micros
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.OpenApi.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.AspNetCore.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.Extensions.Logging.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.Formatting.Compact.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.Sinks.Console.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Serilog.Sinks.File.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\System.ClientModel.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
@@ -64,6 +83,7 @@ D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\Identi
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\IdentityService.API.csproj.CoreCompileInputs.cache
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\IdentityService.API.MvcApplicationPartsAssemblyInfo.cs
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\IdentityService.API.MvcApplicationPartsAssemblyInfo.cache
+D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\IdentityService.API.sourcelink.json
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\rjimswa.dswa.cache.json
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -79,6 +99,3 @@ D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\refint
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\IdentityService.API.pdb
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\IdentityService.API.genruntimeconfig.cache
 D:\My Learning\ResearchPlatform\src\IdentityService.API\obj\Debug\net10.0\ref\IdentityService.API.dll
-D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll

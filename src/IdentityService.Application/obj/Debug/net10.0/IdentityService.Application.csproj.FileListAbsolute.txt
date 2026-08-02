@@ -8,6 +8,7 @@ D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.
 D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.AssemblyInfoInputs.cache
 D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.AssemblyInfo.cs
 D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.csproj.CoreCompileInputs.cache
+D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.sourcelink.json
 D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\Identity.52144512.Up2Date
 D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\IdentityService.Application.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.Application\obj\Debug\net10.0\refint\IdentityService.Application.dll

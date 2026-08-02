@@ -150,7 +150,7 @@ namespace IdentityService.Infrastructure.Migrations
             modelBuilder.Entity("IdentityService.Domain.Entities.RefreshToken", b =>
                 {
                     b.HasOne("IdentityService.Domain.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("RefreshTokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -172,6 +172,11 @@ namespace IdentityService.Infrastructure.Migrations
             modelBuilder.Entity("IdentityService.Domain.Entities.Role", b =>
                 {
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("IdentityService.Domain.Entities.User", b =>
+                {
+                    b.Navigation("RefreshTokens");
                 });
 #pragma warning restore 612, 618
         }
