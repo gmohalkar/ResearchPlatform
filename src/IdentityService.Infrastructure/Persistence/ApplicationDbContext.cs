@@ -17,6 +17,14 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<RefreshToken> RefreshTokens { get; set; }
 
+    public DbSet<Permission>
+    Permissions => Set<Permission>();
+
+public DbSet<RolePermission>
+    RolePermissions => Set<RolePermission>();
+
+    public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+
     protected override void OnModelCreating(
     ModelBuilder modelBuilder)
 {
@@ -31,5 +39,20 @@ public class ApplicationDbContext : DbContext
         .HasOne(x => x.User)
         .WithMany(x => x.RefreshTokens)
         .HasForeignKey(x => x.UserId);
+    modelBuilder.Entity<RolePermission>()
+    .HasKey(x =>
+        new
+        {
+            x.RoleId,
+            x.PermissionId
+        });
+    modelBuilder.Entity<RolePermission>()
+    .HasOne(x => x.Role)
+    .WithMany(x => x.RolePermissions)
+    .HasForeignKey(x => x.RoleId);
+    modelBuilder.Entity<RolePermission>()
+    .HasOne(x => x.Permission)
+    .WithMany(x => x.RolePermissions)
+    .HasForeignKey(x => x.PermissionId);
 }
 }

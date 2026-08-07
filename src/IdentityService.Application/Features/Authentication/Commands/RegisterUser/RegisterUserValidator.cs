@@ -13,5 +13,8 @@ public class RegisterUserValidator
 
         RuleFor(x => x.Password)
             .MinimumLength(8);
+        RuleFor(x => x.RoleName)
+    .NotEmpty()
+    .WithMessage("Role is required.");
     }
 }

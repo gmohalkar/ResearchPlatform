@@ -8,14 +8,16 @@ public class RegisterUserHandler
     private readonly IUserRepository _userRepository;
     private readonly IPasswordService _passwordService;
     private readonly IRoleRepository _roleRepository;
+    private readonly IResetPasswordTokenService _resetPasswordTokenService;
     public RegisterUserHandler(
      IUserRepository userRepository,
      IPasswordService passwordService,
-     IRoleRepository roleRepository)
+     IRoleRepository roleRepository, IResetPasswordTokenService resetPasswordTokenService)
     {
         _userRepository = userRepository;
         _passwordService = passwordService;
         _roleRepository = roleRepository;
+        _resetPasswordTokenService = resetPasswordTokenService;
     }
     public async Task<Guid> Handle(
     RegisterUserCommand request,
@@ -24,34 +26,41 @@ public class RegisterUserHandler
         var existingUser =
         await _userRepository.GetByEmailAsync(
         request.Email);
-        
-        var defaultRole =
-    await _roleRepository
-        .GetByNameAsync("Researcher");
-Console.WriteLine($"Role Found: {defaultRole?.Name}");
-Console.WriteLine($"Role Id: {defaultRole?.Id}");
-        if (defaultRole == null)
+
+        var role =
+       await _roleRepository
+           .GetByNameAsync(
+               request.RoleName);
+
+        if (role == null)
         {
             throw new Exception(
-                "Researcher role not found.");
+                $"Role '{request.RoleName}' does not exist.");
         }
         if (existingUser != null)
         {
             throw new Exception(
             $"User already exists with email {request.Email}");
         }
+
+        var verificationToken =
+    _resetPasswordTokenService
+        .GenerateToken();
+
         var user = new User
-{
-    Id = Guid.NewGuid(),
-    FirstName = request.FirstName,
-    LastName = request.LastName,
-    Email = request.Email,
-    PasswordHash =
+        {
+            Id = Guid.NewGuid(),
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            Email = request.Email,
+            PasswordHash =
         _passwordService.HashPassword(
             request.Password),
-
-    RoleId = defaultRole.Id
-};
+            RoleId = role.Id,
+            IsEmailVerified = false,
+            EmailVerificationToken =
+verificationToken
+        };
         await _userRepository.AddAsync(user);
         await _userRepository.SaveChangesAsync();
         return user.Id;

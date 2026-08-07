@@ -510,3 +510,286 @@ DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
 2026-08-02 09:10:43.232 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
 2026-08-02 09:10:43.234 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 200 null application/json; charset=utf-8 23.1249ms
 2026-08-02 09:11:48.835 +05:30 [INF] Application is shutting down...
+2026-08-02 10:38:55.134 +05:30 [INF] Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Roles] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-02 10:38:55.291 +05:30 [INF] User profile is available. Using 'C:\Users\mohalkar_g\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-02 10:38:55.361 +05:30 [INF] Now listening on: http://localhost:5227
+2026-08-02 10:38:55.363 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-02 10:38:55.364 +05:30 [INF] Hosting environment: Development
+2026-08-02 10:38:55.364 +05:30 [INF] Content root path: D:\My Learning\ResearchPlatform\src\IdentityService.API
+2026-08-02 10:39:11.610 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.html - null null
+2026-08-02 10:39:11.798 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.html - 304 null null 190.6013ms
+2026-08-02 10:39:11.886 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.css - null null
+2026-08-02 10:39:11.886 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - null null
+2026-08-02 10:39:11.888 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - null null
+2026-08-02 10:39:11.888 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-02 10:39:11.891 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/index.js - null null
+2026-08-02 10:39:11.914 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.js - 304 null null 22.6942ms
+2026-08-02 10:39:11.917 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/index.css - 304 null null 31.3489ms
+2026-08-02 10:39:11.917 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-standalone-preset.js - 304 null null 28.5829ms
+2026-08-02 10:39:11.917 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui.css - 304 null null 31.8988ms
+2026-08-02 10:39:11.926 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/swagger-ui-bundle.js - 304 null null 37.0631ms
+2026-08-02 10:39:12.065 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - null null
+2026-08-02 10:39:12.230 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 164.4797ms
+2026-08-02 10:39:28.668 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:39:28.691 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-08-02 10:39:28.757 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 10:39:28.764 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 10:39:28.767 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 98.2465ms
+2026-08-02 10:39:51.627 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 59
+2026-08-02 10:39:51.643 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:39:51.689 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:39:51.733 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software MediatR. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-08-02 10:39:52.264 +05:30 [INF] Executed DbCommand (65ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:39:53.190 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 10:39:53.213 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 1515.0492ms
+2026-08-02 10:39:53.217 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:39:53.227 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 1600.8551ms
+2026-08-02 10:39:57.785 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:39:57.800 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 10:39:57.803 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 10:39:57.806 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 20.5296ms
+2026-08-02 10:40:44.396 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 63
+2026-08-02 10:40:44.401 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:40:44.404 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:40:44.452 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:40:44.954 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 10:40:44.957 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 550.2866ms
+2026-08-02 10:40:44.960 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:40:44.963 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 566.8405ms
+2026-08-02 10:40:56.813 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:40:56.884 +05:30 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '8/2/2026 4:35:25 AM', Current time (UTC): '8/2/2026 5:10:56 AM'.
+   at Microsoft.IdentityModel.Tokens.ValidatorUtilities.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-08-02 10:40:56.915 +05:30 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '8/2/2026 4:35:25 AM', Current time (UTC): '8/2/2026 5:10:56 AM'.
+2026-08-02 10:40:56.921 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 10:40:56.925 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 10:40:56.928 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 115.419ms
+2026-08-02 10:41:14.019 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 63
+2026-08-02 10:41:14.043 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:41:14.045 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:41:14.068 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:41:14.277 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 10:41:14.280 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 232.6773ms
+2026-08-02 10:41:14.282 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:41:14.285 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 266.098ms
+2026-08-02 10:41:22.416 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:41:22.422 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:41:22.427 +05:30 [INF] Route matched with {action = "Claims", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Claims() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 10:41:22.431 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 10:41:22.436 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Claims (IdentityService.API) in 5.7379ms
+2026-08-02 10:41:22.438 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:41:22.441 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 200 null application/json; charset=utf-8 24.4657ms
+2026-08-02 10:42:42.799 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/register - application/json 110
+2026-08-02 10:42:42.804 +05:30 [INF] Executing endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 10:42:42.822 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:42:42.848 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:42:42.878 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@roleName='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Roles] AS [r]
+WHERE [r].[Name] = @roleName
+2026-08-02 10:42:42.887 +05:30 [INF] Executed action AuthController.Register (IdentityService.API) in 60.3044ms
+2026-08-02 10:42:42.890 +05:30 [INF] Executed endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 10:42:42.896 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/register - 500 null application/json; charset=utf-8 96.8556ms
+2026-08-02 10:43:26.014 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/register - application/json 110
+2026-08-02 10:43:26.020 +05:30 [INF] Executing endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 10:43:26.022 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(RegisterUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:43:26.042 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:43:26.053 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@roleName='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Roles] AS [r]
+WHERE [r].[Name] = @roleName
+2026-08-02 10:43:26.469 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [CreatedBy], [CreatedDate], [Email], [FirstName], [IsEmailVerified], [IsLocked], [LastLoginDate], [LastName], [ModifiedBy], [ModifiedDate], [PasswordHash], [PhoneNumber], [RoleId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2026-08-02 10:43:26.490 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Guid'.
+2026-08-02 10:43:26.498 +05:30 [INF] Executed action AuthController.Register (IdentityService.API) in 472.6624ms
+2026-08-02 10:43:26.502 +05:30 [INF] Executed endpoint 'AuthController.Register (IdentityService.API)'
+2026-08-02 10:43:26.504 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/register - 200 null application/json; charset=utf-8 490.3518ms
+2026-08-02 10:43:33.410 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:43:33.414 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 10:43:33.416 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 10:43:33.419 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 401 0 null 8.9224ms
+2026-08-02 10:43:39.651 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:43:39.657 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:43:39.660 +05:30 [INF] Route matched with {action = "Claims", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Claims() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 10:43:39.664 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 10:43:39.667 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Claims (IdentityService.API) in 3.5664ms
+2026-08-02 10:43:39.670 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:43:39.672 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 200 null application/json; charset=utf-8 20.7036ms
+2026-08-02 10:43:41.424 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:43:41.429 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:43:41.431 +05:30 [INF] Route matched with {action = "Claims", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Claims() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 10:43:41.435 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 10:43:41.437 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Claims (IdentityService.API) in 2.8906ms
+2026-08-02 10:43:41.440 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:43:41.443 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 200 null application/json; charset=utf-8 18.9954ms
+2026-08-02 10:43:54.638 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 59
+2026-08-02 10:43:54.644 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:43:54.647 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:43:54.677 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:43:54.906 +05:30 [INF] Executing OkObjectResult, writing value of type 'IdentityService.Application.Features.Authentication.LoginUser.LoginResponse'.
+2026-08-02 10:43:54.909 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 256.5992ms
+2026-08-02 10:43:54.912 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:43:54.914 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 200 null application/json; charset=utf-8 275.4596ms
+2026-08-02 10:44:06.972 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:44:06.976 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:44:06.978 +05:30 [INF] Route matched with {action = "Claims", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Claims() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 10:44:06.982 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 10:44:06.985 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Claims (IdentityService.API) in 3.2059ms
+2026-08-02 10:44:06.988 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:44:06.990 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 200 null application/json; charset=utf-8 17.9502ms
+2026-08-02 10:44:17.021 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:44:17.025 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:44:17.028 +05:30 [INF] Route matched with {action = "Claims", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Claims() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 10:44:17.032 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 10:44:17.035 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Claims (IdentityService.API) in 3.5441ms
+2026-08-02 10:44:17.038 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:44:17.042 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 200 null application/json; charset=utf-8 20.9317ms
+2026-08-02 10:44:35.432 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 10:44:35.446 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-08-02 10:44:35.453 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 10:44:35.456 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 401 0 null 24.0018ms
+2026-08-02 10:44:43.784 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 10:44:43.789 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Profile (IdentityService.API)'
+2026-08-02 10:44:43.794 +05:30 [INF] Route matched with {action = "Profile", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Profile() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 10:44:43.798 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 10:44:43.801 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Profile (IdentityService.API) in 4.2014ms
+2026-08-02 10:44:43.804 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Profile (IdentityService.API)'
+2026-08-02 10:44:43.806 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 200 null application/json; charset=utf-8 22.5463ms
+2026-08-02 10:44:54.127 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:44:54.138 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:44:54.141 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 10:44:54.143 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 401 0 null 15.1253ms
+2026-08-02 10:45:05.155 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:45:05.160 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:45:05.162 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 10:45:05.164 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 401 0 null 9.1747ms
+2026-08-02 10:45:12.185 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:45:12.190 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:45:12.194 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-08-02 10:45:12.198 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 403 0 null 12.8152ms
+2026-08-02 10:45:29.886 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:45:29.892 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:45:29.894 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-08-02 10:45:29.896 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 403 0 null 10.0987ms
+2026-08-02 10:45:34.977 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:45:34.983 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:45:34.985 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-08-02 10:45:34.988 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 403 0 null 10.8791ms
+2026-08-02 10:45:45.317 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:45:45.322 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:45:45.325 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-08-02 10:45:45.327 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 403 0 null 10.4333ms
+2026-08-02 10:45:59.525 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 63
+2026-08-02 10:45:59.529 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:45:59.530 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:45:59.546 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:45:59.557 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 20.4593ms
+2026-08-02 10:45:59.561 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:45:59.564 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 500 null application/json; charset=utf-8 39.0748ms
+2026-08-02 10:46:06.569 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 63
+2026-08-02 10:46:06.575 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:46:06.577 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:46:06.586 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:46:06.591 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 11.232ms
+2026-08-02 10:46:06.594 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:46:06.596 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 500 null application/json; charset=utf-8 26.4584ms
+2026-08-02 10:46:14.572 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5227/api/Auth/login - application/json 63
+2026-08-02 10:46:14.577 +05:30 [INF] Executing endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:46:14.579 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(IdentityService.Application.Features.Authentication.LoginUser.LoginUserCommand) on controller AuthController (IdentityService.API).
+2026-08-02 10:46:14.588 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@email='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[Email], [u].[FirstName], [u].[IsEmailVerified], [u].[IsLocked], [u].[LastLoginDate], [u].[LastName], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[PhoneNumber], [u].[RoleId], [r].[Id], [r].[CreatedBy], [r].[CreatedDate], [r].[ModifiedBy], [r].[ModifiedDate], [r].[Name]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[Email] = @email
+2026-08-02 10:46:14.592 +05:30 [INF] Executed action AuthController.Login (IdentityService.API) in 8.7564ms
+2026-08-02 10:46:14.594 +05:30 [INF] Executed endpoint 'AuthController.Login (IdentityService.API)'
+2026-08-02 10:46:14.596 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5227/api/Auth/login - 500 null application/json; charset=utf-8 24.66ms
+2026-08-02 10:46:40.032 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:46:40.039 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:46:40.041 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-08-02 10:46:40.043 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 403 0 null 10.6321ms
+2026-08-02 10:47:00.839 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:47:00.846 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:47:00.848 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-02 10:47:00.850 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 401 0 null 11.2221ms
+2026-08-02 10:47:10.362 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:47:10.367 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:47:10.369 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-08-02 10:47:10.371 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 403 0 null 8.9235ms
+2026-08-02 10:47:28.764 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/claims - null null
+2026-08-02 10:47:28.768 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:47:28.770 +05:30 [INF] Route matched with {action = "Claims", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Claims() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 10:47:28.773 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 10:47:28.776 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Claims (IdentityService.API) in 2.5988ms
+2026-08-02 10:47:28.778 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Claims (IdentityService.API)'
+2026-08-02 10:47:28.781 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/claims - 200 null application/json; charset=utf-8 16.6073ms
+2026-08-02 10:47:45.733 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/admin - null null
+2026-08-02 10:47:45.739 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-02 10:47:45.742 +05:30 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-08-02 10:47:45.744 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/admin - 403 0 null 10.2355ms
+2026-08-02 10:48:51.317 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5227/api/Users/profile - null null
+2026-08-02 10:48:51.320 +05:30 [INF] Executing endpoint 'IdentityService.API.Controllers.UsersController.Profile (IdentityService.API)'
+2026-08-02 10:48:51.321 +05:30 [INF] Route matched with {action = "Profile", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Profile() on controller IdentityService.API.Controllers.UsersController (IdentityService.API).
+2026-08-02 10:48:51.324 +05:30 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`3[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-02 10:48:51.327 +05:30 [INF] Executed action IdentityService.API.Controllers.UsersController.Profile (IdentityService.API) in 2.3464ms
+2026-08-02 10:48:51.328 +05:30 [INF] Executed endpoint 'IdentityService.API.Controllers.UsersController.Profile (IdentityService.API)'
+2026-08-02 10:48:51.330 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5227/api/Users/profile - 200 null application/json; charset=utf-8 13.8379ms

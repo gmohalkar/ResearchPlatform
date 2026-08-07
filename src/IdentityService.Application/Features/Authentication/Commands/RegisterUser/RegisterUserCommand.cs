@@ -4,5 +4,6 @@ public record RegisterUserCommand(
     string FirstName,
     string LastName,
     string Email,
-    string Password)
-    : IRequest<Guid>;
+    string Password,
+    string RoleName
+) : IRequest<Guid>;

@@ -20,11 +20,38 @@ public class User : BaseEntity
 
     public Guid RoleId { get; set; }
 
-    public Role Role { get; set; } 
+    public Role? Role { get; set; } = null;
 
     public ICollection<RefreshToken> RefreshTokens
+    {
+        get;
+        set;
+    } = new List<RefreshToken>();
+    public string? PasswordResetToken
+    {
+        get;
+        set;
+    }
+
+    public DateTime? PasswordResetTokenExpiry
+    {
+        get;
+        set;
+    }
+    public string? EmailVerificationToken
+    {
+        get;
+        set;
+    }
+    public int FailedLoginAttempts
 {
-get;
-set;
-} = new List<RefreshToken>();
+    get;
+    set;
+}
+
+public DateTime? LockoutEndTime
+{
+    get;
+    set;
+}
 }

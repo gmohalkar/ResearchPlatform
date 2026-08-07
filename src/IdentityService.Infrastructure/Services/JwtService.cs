@@ -17,7 +17,7 @@ public class JwtService : IJwtService
         _jwtSettings = jwtSettings.Value;
     }
 
-    public string GenerateToken(User user)
+    public string GenerateToken(User user, List<string> permissions)
     {
         var claims = new List<Claim>
 {
@@ -37,7 +37,13 @@ public class JwtService : IJwtService
         ClaimTypes.Role,
         user.Role?.Name ?? "Guest")
 };
-
+        foreach (var permission in permissions)
+        {
+            claims.Add(
+            new Claim(
+            "permission",
+            permission));
+        }
         var key = new SymmetricSecurityKey(
             Encoding.UTF8.GetBytes(_jwtSettings.Key));
 

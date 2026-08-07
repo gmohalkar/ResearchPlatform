@@ -1,5 +1,7 @@
 using System.Text;
 using FluentValidation;
+using Hangfire;
+using IdentityService.API.Authorization;
 using IdentityService.API.Middleware;
 using IdentityService.Application.Common;
 using IdentityService.Application.Features.Authentication.LoginUser;
@@ -8,6 +10,7 @@ using IdentityService.Infrastructure.Persistence;
 using IdentityService.Infrastructure.Repositories;
 using IdentityService.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
@@ -53,6 +56,39 @@ builder.Services.AddScoped<IPasswordService, PasswordService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+
+builder.Services.AddScoped<
+    IRefreshTokenRepository,
+    RefreshTokenRepository>();
+
+builder.Services.AddScoped<
+    IRefreshTokenService,
+    RefreshTokenService>();
+
+    builder.Services.AddScoped<
+    IResetPasswordTokenService,
+    ResetPasswordTokenService>();
+
+    builder.Services.AddScoped<
+    IPermissionRepository,
+    PermissionRepository>();
+
+    builder.Services.AddSingleton<
+    IAuthorizationHandler,
+    PermissionHandler>();
+
+    builder.Services.AddScoped<
+    IAuditLogRepository,
+    AuditLogRepository>();
+
+    builder.Services.AddScoped<
+    IAuditService,
+    AuditService>();
+
+    // builder.Services.AddScoped<ICacheService,
+    // RedisCacheService>();
+
+    builder.Services.AddScoped<CleanupJob>();
 
 #endregion
 
@@ -126,10 +162,74 @@ builder.Services
         };
     });
 
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(
+    options =>
+    {
+        options.AddPolicy(
+            "CreateUser",
+            policy =>
+            {
+                policy.Requirements.Add(
+                    new PermissionRequirement(
+                        "CreateUser"));
+            });
+
+        options.AddPolicy(
+            "DeleteUser",
+            policy =>
+            {
+                policy.Requirements.Add(
+                    new PermissionRequirement(
+                        "DeleteUser"));
+            });
+
+        options.AddPolicy(
+            "ManageRoles",
+            policy =>
+            {
+                policy.Requirements.Add(
+                    new PermissionRequirement(
+                        "ManageRoles"));
+            });
+
+        options.AddPolicy(
+            "ViewAuditLogs",
+            policy =>
+            {
+                policy.Requirements.Add(
+                    new PermissionRequirement(
+                        "ViewAuditLogs"));
+            });
+    });
 
 #endregion
+// #region Redis Configuration
+// builder.Services.AddStackExchangeRedisCache(
+//     options =>
+//     {
+//         options.Configuration =
+//             builder.Configuration["Redis:ConnectionString"];
 
+//         options.InstanceName =
+//             "ResearchPlatform";
+//     });
+// #endregion
+
+#region Hangfire Configuration
+// RecurringJob.AddOrUpdate<
+//     CleanupJob>(
+//         "cleanup-job",
+//         x => x.Execute(),
+//         Cron.Daily);
+builder.Services.AddHangfire(config =>
+{
+    config.UseSqlServerStorage(
+        builder.Configuration
+            .GetConnectionString(
+                "DefaultConnection"));
+});
+builder.Services.AddHangfireServer();
+#endregion
 #region Swagger
 
 builder.Services.AddEndpointsApiExplorer();
@@ -142,13 +242,25 @@ var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
 {
+    var recurringJobManager =
+        scope.ServiceProvider
+            .GetRequiredService<IRecurringJobManager>();
+
+    recurringJobManager.AddOrUpdate<CleanupJob>(
+        "cleanup-job",
+        x => x.Execute(),
+        Cron.Daily);
+}
+
+using (var scope = app.Services.CreateScope())
+{
     var context =
         scope.ServiceProvider
             .GetRequiredService<ApplicationDbContext>();
 
     await RoleSeeder.SeedAsync(context);
+    await PermissionSeeder.SeedAsync(context);
 }
-
 
 #region Middleware
 
@@ -165,7 +277,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.UseAuthentication();
 
 app.UseAuthorization();
-
+app.UseHangfireDashboard();
 app.MapControllers();
 
 #endregion
