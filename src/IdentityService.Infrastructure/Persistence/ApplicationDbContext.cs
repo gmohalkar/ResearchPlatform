@@ -17,13 +17,13 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<RefreshToken> RefreshTokens { get; set; }
 
-    public DbSet<Permission>
-    Permissions => Set<Permission>();
+    public DbSet<Permission> Permissions => Set<Permission>();
 
-public DbSet<RolePermission>
-    RolePermissions => Set<RolePermission>();
+public DbSet<RolePermission> RolePermissions => Set<RolePermission>();
 
     public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+
+    public DbSet<OutboxMessage>OutboxMessages => Set<OutboxMessage>();
 
     protected override void OnModelCreating(
     ModelBuilder modelBuilder)

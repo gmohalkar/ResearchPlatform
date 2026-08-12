@@ -54,6 +54,12 @@ public class RefreshTokenHandler
     }
 
     var user = existingRefreshToken.User;
+    if (user == null)
+    {
+        throw new Exception(
+            "User associated with refresh token not found.");
+    }
+
     var permissions =
     await _permissionRepository
         .GetPermissionsByRoleIdAsync(

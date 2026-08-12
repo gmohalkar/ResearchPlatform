@@ -1,3 +1,5 @@
+using System.Text.Json;
+using IdentityService.Application.Events;
 using IdentityService.Application.Interfaces;
 using IdentityService.Domain.Entities;
 using MediatR;
@@ -9,15 +11,24 @@ public class RegisterUserHandler
     private readonly IPasswordService _passwordService;
     private readonly IRoleRepository _roleRepository;
     private readonly IResetPasswordTokenService _resetPasswordTokenService;
+
+    private readonly IMediator _mediator;
+    private readonly IOutboxRepository _outboxRepository;
+
     public RegisterUserHandler(
      IUserRepository userRepository,
      IPasswordService passwordService,
-     IRoleRepository roleRepository, IResetPasswordTokenService resetPasswordTokenService)
+     IRoleRepository roleRepository,
+     IResetPasswordTokenService resetPasswordTokenService,
+     IMediator mediator,
+     IOutboxRepository outboxRepository)
     {
         _userRepository = userRepository;
         _passwordService = passwordService;
         _roleRepository = roleRepository;
         _resetPasswordTokenService = resetPasswordTokenService;
+        _mediator = mediator;
+        _outboxRepository = outboxRepository;
     }
     public async Task<Guid> Handle(
     RegisterUserCommand request,
@@ -63,6 +74,35 @@ verificationToken
         };
         await _userRepository.AddAsync(user);
         await _userRepository.SaveChangesAsync();
+            await _mediator.Publish(
+        new UserRegisteredEvent
+        {
+            UserId = user.Id,
+            Email = user.Email,
+            FirstName = user.FirstName,
+            OccurredOn = DateTime.UtcNow
+        });
+        await _outboxRepository.AddAsync(
+     new OutboxMessage
+     {
+         Type = nameof(
+             UserRegisteredEvent),
+
+         Content =
+             JsonSerializer.Serialize(
+                 new
+                 {
+                     user.Id,
+                     user.Email,
+                     user.FirstName
+                 }),
+
+         CreatedOn =
+             DateTime.UtcNow
+     });
+
+        await _outboxRepository
+            .SaveChangesAsync();
         return user.Id;
     }
 }

@@ -4062,11 +4062,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Learning\\ResearchPlatform\\src\\IdentityService.Infrastructure\\IdentityService.Infrastructure.csproj",
+      "projectUniqueName": "d:\\My Learning\\ResearchPlatform\\src\\IdentityService.Infrastructure\\IdentityService.Infrastructure.csproj",
       "projectName": "IdentityService.Infrastructure",
-      "projectPath": "D:\\My Learning\\ResearchPlatform\\src\\IdentityService.Infrastructure\\IdentityService.Infrastructure.csproj",
+      "projectPath": "d:\\My Learning\\ResearchPlatform\\src\\IdentityService.Infrastructure\\IdentityService.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\mohalkar_g\\.nuget\\packages\\",
-      "outputPath": "D:\\My Learning\\ResearchPlatform\\src\\IdentityService.Infrastructure\\obj\\",
+      "outputPath": "d:\\My Learning\\ResearchPlatform\\src\\IdentityService.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mohalkar_g\\AppData\\Roaming\\NuGet\\NuGet.Config"

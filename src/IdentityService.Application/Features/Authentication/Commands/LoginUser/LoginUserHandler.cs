@@ -1,6 +1,7 @@
 using IdentityService.Application.Interfaces;
 using IdentityService.Domain.Entities;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityService.Application.Features.Authentication.LoginUser;
 
@@ -15,6 +16,8 @@ public class LoginUserHandler
     private readonly IPermissionRepository _permissionRepository;
     private readonly IAuditService _auditService;
 
+    private readonly ILogger<LoginUserHandler> _logger;
+
 
     public LoginUserHandler(
         IUserRepository userRepository,
@@ -23,7 +26,8 @@ public class LoginUserHandler
         IRefreshTokenService refreshTokenService,
         IRefreshTokenRepository refreshTokenRepository,
         IPermissionRepository permissionRepository,
-        IAuditService auditService)
+        IAuditService auditService,
+        ILogger<LoginUserHandler> logger)
     {
         _userRepository = userRepository;
         _passwordService = passwordService;
@@ -32,6 +36,7 @@ public class LoginUserHandler
         _refreshTokenRepository = refreshTokenRepository;
         _permissionRepository = permissionRepository;
         _auditService = auditService;
+        _logger = logger;
     }
 
     public async Task<LoginResponse> Handle(
@@ -121,6 +126,9 @@ public class LoginUserHandler
             "Login",
             "/api/auth/login",
             "User logged in successfully");
+        _logger.LogInformation(
+    "User {Email} logged in successfully",
+    request.Email);
         return new LoginResponse
         {
             AccessToken = accessToken,

@@ -122,3 +122,17 @@ D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\sv\Han
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\tr-TR\Hangfire.Core.resources.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\zh-TW\Hangfire.Core.resources.dll
 D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\zh\Hangfire.Core.resources.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Azure.Extensions.AspNetCore.Configuration.Secrets.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Azure.Security.KeyVault.Secrets.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Azure.Monitor.OpenTelemetry.Exporter.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.ApplicationInsights.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\Microsoft.ApplicationInsights.AspNetCore.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.Api.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.Api.ProviderBuilderExtensions.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.Extensions.Hosting.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.Instrumentation.AspNetCore.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.Instrumentation.Http.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.Instrumentation.SqlClient.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.PersistentStorage.Abstractions.dll
+D:\My Learning\ResearchPlatform\src\IdentityService.API\bin\Debug\net10.0\OpenTelemetry.PersistentStorage.FileSystem.dll

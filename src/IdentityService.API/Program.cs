@@ -1,4 +1,5 @@
 using System.Text;
+using Azure.Identity;
 using FluentValidation;
 using Hangfire;
 using IdentityService.API.Authorization;
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Reader;
 using Serilog;
 
 Log.Logger =
@@ -24,6 +26,24 @@ Log.Logger =
             RollingInterval.Day)
         .CreateLogger();
 var builder = WebApplication.CreateBuilder(args);
+
+var keyVaultUri =
+    builder.Configuration["KeyVaultUri"];
+
+if (!string.IsNullOrWhiteSpace(keyVaultUri))
+{
+    builder.Configuration
+        .AddAzureKeyVault(
+            new Uri(keyVaultUri),
+            new DefaultAzureCredential());
+}
+//builder.Services.AddApplicationInsightsTelemetry();
+builder.Services.AddApplicationInsightsTelemetry(options =>
+{
+    options.ConnectionString =
+        "InstrumentationKey=eb1baab3-b83e-4fb0-9f9c-d77a80b56108;IngestionEndpoint=https://centralindia-0.in.applicationinsights.azure.com/;LiveEndpoint=https://centralindia.livediagnostics.monitor.azure.com/;ApplicationId=9a583470-6629-4af5-97f3-f9be7b670f78";
+});
+Console.WriteLine("AI CONFIGURED");
 builder.Host.UseSerilog();
 #region Controllers
 
@@ -36,7 +56,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"));
+        builder.Configuration.GetConnectionString(
+            "DefaultConnection"));
 });
 
 #endregion
@@ -90,6 +111,12 @@ builder.Services.AddScoped<
 
     builder.Services.AddScoped<CleanupJob>();
 
+    builder.Services.AddScoped<
+    IOutboxRepository,
+    OutboxRepository>();
+
+    builder.Services.AddScoped<OutboxProcessorJob>();
+
 #endregion
 
 #region MediatR
@@ -102,18 +129,20 @@ builder.Services.AddMediatR(cfg =>
 #endregion
 
 #region JWT Configuration
-
+Console.WriteLine(
+$"JWT Key = {builder.Configuration["Jwt:Key"]}");
 builder.Services.Configure<JwtSettings>(
     builder.Configuration.GetSection("Jwt"));
 
 var jwtSettings =
     builder.Configuration
-           .GetSection("Jwt")
-           .Get<JwtSettings>();
+        .GetSection("Jwt")
+        .Get<JwtSettings>();
 
 if (jwtSettings == null)
 {
-    throw new Exception("Jwt configuration is missing.");
+    throw new Exception(
+        "JWT configuration is missing.");
 }
 
 builder.Services
@@ -135,71 +164,37 @@ builder.Services
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
 
-                ValidIssuer = jwtSettings.Issuer,
-                ValidAudience = jwtSettings.Audience,
+                ValidIssuer =
+                    jwtSettings.Issuer,
+
+                ValidAudience =
+                    jwtSettings.Audience,
 
                 IssuerSigningKey =
                     new SymmetricSecurityKey(
-                        Encoding.UTF8.GetBytes(jwtSettings.Key))
+                        Encoding.UTF8.GetBytes(
+                            jwtSettings.Key))
             };
 
-        options.Events = new JwtBearerEvents
-        {
-            OnAuthenticationFailed = context =>
+        options.Events =
+            new JwtBearerEvents
             {
-                Console.WriteLine(
-                    $"AUTH FAILED: {context.Exception.Message}");
+                OnAuthenticationFailed = context =>
+                {
+                    Console.WriteLine(
+                        $"AUTH FAILED: {context.Exception.Message}");
 
-                return Task.CompletedTask;
-            },
+                    return Task.CompletedTask;
+                },
 
-            OnTokenValidated = context =>
-            {
-                Console.WriteLine("TOKEN VALIDATED");
+                OnTokenValidated = context =>
+                {
+                    Console.WriteLine(
+                        "TOKEN VALIDATED");
 
-                return Task.CompletedTask;
-            }
-        };
-    });
-
-builder.Services.AddAuthorization(
-    options =>
-    {
-        options.AddPolicy(
-            "CreateUser",
-            policy =>
-            {
-                policy.Requirements.Add(
-                    new PermissionRequirement(
-                        "CreateUser"));
-            });
-
-        options.AddPolicy(
-            "DeleteUser",
-            policy =>
-            {
-                policy.Requirements.Add(
-                    new PermissionRequirement(
-                        "DeleteUser"));
-            });
-
-        options.AddPolicy(
-            "ManageRoles",
-            policy =>
-            {
-                policy.Requirements.Add(
-                    new PermissionRequirement(
-                        "ManageRoles"));
-            });
-
-        options.AddPolicy(
-            "ViewAuditLogs",
-            policy =>
-            {
-                policy.Requirements.Add(
-                    new PermissionRequirement(
-                        "ViewAuditLogs"));
-            });
+                    return Task.CompletedTask;
+                }
+            };
     });
 
 #endregion
@@ -216,11 +211,7 @@ builder.Services.AddAuthorization(
 // #endregion
 
 #region Hangfire Configuration
-// RecurringJob.AddOrUpdate<
-//     CleanupJob>(
-//         "cleanup-job",
-//         x => x.Execute(),
-//         Cron.Daily);
+
 builder.Services.AddHangfire(config =>
 {
     config.UseSqlServerStorage(
@@ -228,7 +219,9 @@ builder.Services.AddHangfire(config =>
             .GetConnectionString(
                 "DefaultConnection"));
 });
+
 builder.Services.AddHangfireServer();
+
 #endregion
 #region Swagger
 
@@ -262,13 +255,26 @@ using (var scope = app.Services.CreateScope())
     await PermissionSeeder.SeedAsync(context);
 }
 
+using(var scope =
+    app.Services.CreateScope())
+{
+    var recurringJobs =
+        scope.ServiceProvider
+            .GetRequiredService<
+                IRecurringJobManager>();
+
+    recurringJobs.AddOrUpdate<
+        OutboxProcessorJob>(
+            "process-outbox",
+            x => x.Execute(),
+            Cron.Minutely);
+}
+
 #region Middleware
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
@@ -277,9 +283,16 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
 app.UseHangfireDashboard();
+
 app.MapControllers();
 
-#endregion
+app.MapGet("/", () =>
+{
+    return Results.Ok(
+        "Research Platform API Running Successfully");
+});
 
+#endregion
 app.Run();

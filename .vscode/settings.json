@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/fc2cbc54-9780-4924-8455-e80f4aedda89/resourceGroups/ResearchPlatform-DEV-RG/providers/Microsoft.Web/sites/researchplatform-dev-api",
+    "appService.deploySubpath": "src\\IdentityService.API"
+}

@@ -1,0 +1,12 @@
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\bin\Release\net10.0\IdentityService.Domain.deps.json
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\bin\Release\net10.0\IdentityService.Domain.dll
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\bin\Release\net10.0\IdentityService.Domain.pdb
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\IdentityService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\IdentityService.Domain.AssemblyInfoInputs.cache
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\IdentityService.Domain.AssemblyInfo.cs
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\IdentityService.Domain.csproj.CoreCompileInputs.cache
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\IdentityService.Domain.sourcelink.json
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\IdentityService.Domain.dll
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\refint\IdentityService.Domain.dll
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\IdentityService.Domain.pdb
+d:\My Learning\ResearchPlatform\src\IdentityService.Domain\obj\Release\net10.0\ref\IdentityService.Domain.dll
